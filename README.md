@@ -36,26 +36,6 @@ This repository aggregates the following high-quality sources.
 
 ---
 
-### Quick Start
-
-#### 1. Clone the Repository
-```bash
-git clone https://github.com/gioblu/NPC-Forge-Python-Dataset.git
-cd NPC-Forge-Python-Dataset
-```
-
-#### 3. Point NPC-Forge to the Dataset
-Update your NPC configuration (`config.json`) to point to the processed file:
-```json
-{
-  "optional_datasets": [
-    "processed/unified_agent_v1.jsonl"
-  ]
-}
-```
-
----
-
 ### Schema Example
 
 Here is what a processed, agent-ready record looks like. Notice the secure `head` and `tail` injected into the command, and the mandatory provenance tags:
