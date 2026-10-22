@@ -1,6 +1,6 @@
 ## NPC-Forge-Python-Dataset
 
-This repository consolidates ~200,000+ of the best open-source Python programming examples into an organized library of curated solutions purpose-built for the **NPC-Forge** framework.
+This repository consolidates ~200,000+ of the best open-source Python programming examples into an organized library of curated solutions purpose-built for the **NPC-Forge** framework. The total number of entries is 43999 with a footprint of around 71,3MB.
 
 [![Size: ~200k+ Samples](https://img.shields.io/badge/Samples-200k+-orange.svg)](#)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
@@ -34,8 +34,6 @@ This repository aggregates the following high-quality sources.
 | Glaive Python Code QA | 4042 | [thedevastator (Kaggle)](https://www.kaggle.com/datasets/thedevastator/glaive-python-code-qa-dataset) | CC0 1.0 (Public Domain) |
 | Python Programming Questions | 8747 | [Bhavesh Mittal (Kaggle)](https://www.kaggle.com/datasets/bhaveshmittal/python-programming-questions-dataset) | CC0 1.0 (Public Domain) |
 
-The total number of entries is 43999 with a footprint of around 71,3MB.
-
 ---
 
 ### Quick Start
@@ -45,14 +43,6 @@ The total number of entries is 43999 with a footprint of around 71,3MB.
 git clone https://github.com/gioblu/NPC-Forge-Python-Dataset.git
 cd NPC-Forge-Python-Dataset
 ```
-*(Note: This repo uses Git LFS for large dataset files. Ensure you have it installed: `git lfs install`)*
-
-#### 2. Normalize and Unify (Optional but Recommended)
-If you want to generate the final, optimized, injection-safe dataset from the raw sources, run the normalization script:
-```bash
-python scripts/normalize_schema.py
-```
-This will read the `raw/` directory, apply the secure heredoc wrappers, fix language tags, inject provenance metadata, and output a unified file to `processed/unified_agent_v1.jsonl`.
 
 #### 3. Point NPC-Forge to the Dataset
 Update your NPC configuration (`config.json`) to point to the processed file:
