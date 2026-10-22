@@ -1,29 +1,94 @@
-## `self-oss-instruct-sc2-exec-filter-50k`
+## NPC-Forge-Python-Dataset
 
-The [self-oss-instruct-sc2-exec-filter-50k](https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k) is an exceptional dataset meticulously crafted for training state-of-the-art language models.
+This repository consolidates ~200,000+ of the best open-source Python programming examples into an organized library of curated solutions purpose-built for the **NPC-Forge** framework.
 
-The [dataset_self-oss-instruct-sc2-exec-filter-50k](dataset_self-oss-instruct-sc2-exec-filter-50k.json) file contains a cleaned, enhanced and reformatted version of the self-oss-instruct-sc2-exec-filter-50k Dataset designed to be used by NPCs to handle prompts related to Python.
+[![Size: ~200k+ Samples](https://img.shields.io/badge/Samples-200k+-orange.svg)](#)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
-The idea is to use this dataset, originally developed to train LLMs, to provide Python programming abilities to deterministic NPCs. The sheer amount of intents (>10k) and their paraphrases (~4 per intent) makes NPCs surprisingly capable of answering Python related questions.
+### Included Datasets
 
-A lot of work has been done on the original dataset using scripts and local language models:
+This repository aggregates the following high-quality sources.
 
-1. The dataset has been converted to [NDF 0.0 (NPC-Forge Dataset Format)](docs/dataset.md).
-2. Removed all duplicated inputs.
-3. Pruned inputs to a single line.
-4. Removed non-ASCII characters.
-5. Lowercased inputs.
-6. Added input paraphrases.
-7. Removed questions that require code editing (optimize this code, rewrite this code).
-8. Moved source code output to `tools` to enable context usage (save it, append it, ecc.).
-9. Removed entries containing non functional code.
-10. Manual curation, cleanup and enhancement.
+| Dataset Name | Source | Original License |
+| :--- | :--- | :--- |
+| Tested-143k-Python-Alpaca | [Vezora (Hugging Face)](https://huggingface.co/datasets/Vezora/Tested-143k-Python-Alpaca) | Apache 2.0 |
+| self-oss-instruct-sc2-exec-filter-50k | [BigCode (Hugging Face)](https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2) | ODC-BY |
+| Python Functions Reasoning | [notbadai (Hugging Face)](https://huggingface.co/datasets/notbadai/python_functions_reasoning) | Apache 2.0 |
+| Glaive Python Code QA | [thedevastator (Kaggle)](https://www.kaggle.com/datasets/thedevastator/glaive-python-code-qa-dataset) | CC0 1.0 (Public Domain) |
+| Python Programming Questions | [Bhavesh Mittal (Kaggle)](https://www.kaggle.com/datasets/bhaveshmittal/python-programming-questions-dataset) | CC0 1.0 (Public Domain) |
 
-The resulting [dataset_self-oss-instruct-sc2-exec-filter-50k](dataset_self-oss-instruct-sc2-exec-filter-50k.json) contains **8777 intents and weights around 10.8MB**. 
+---
 
-### License 
+### Quick Start
 
-The [dataset_self-oss-instruct-sc2-exec-filter-50k](dataset_self-oss-instruct-sc2-exec-filter-50k.json) file is licensed under [AGPL-3.0](LICENSE).
+#### 1. Clone the Repository
+```bash
+git clone https://github.com/gioblu/NPC-Forge-Python-Dataset.git
+cd NPC-Forge-Python-Dataset
+```
+*(Note: This repo uses Git LFS for large dataset files. Ensure you have it installed: `git lfs install`)*
 
-The [self-oss-instruct-sc2-exec-filter-50k](https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k) is licensed under odc-by: Open Data Commons License Attribution family published by bigcode on [huggingface](https://huggingface.co/datasets/bigcode/self-oss-instruct-sc2-exec-filter-50k).
+#### 2. Normalize and Unify (Optional but Recommended)
+If you want to generate the final, optimized, injection-safe dataset from the raw sources, run the normalization script:
+```bash
+python scripts/normalize_schema.py
+```
+This will read the `raw/` directory, apply the secure heredoc wrappers, fix language tags, inject provenance metadata, and output a unified file to `processed/unified_agent_v1.jsonl`.
 
+#### 3. Point NPC-Forge to the Dataset
+Update your NPC configuration (`config.json`) to point to the processed file:
+```json
+{
+  "optional_datasets": [
+    "processed/unified_agent_v1.jsonl"
+  ]
+}
+```
+
+---
+
+### Schema Example
+
+Here is what a processed, agent-ready record looks like. Notice the secure `head` and `tail` injected into the command, and the mandatory provenance tags:
+
+```json
+{
+  "input": "write a function to find squares of individual elements in a list using lambda function.",
+  "tools": [
+    {
+      "name": "run_in_terminal",
+      "arguments": {
+        "language": "python",
+        "mode": "sync",
+        "goal": "Python source code generation",
+        "command": "TMP_FILE=$(mktemp /tmp/termy_script_XXXXXX.py) && DELIM=\"__TERMY_BOUNDARY_$$_$RANDOM__\" && cat << \"$DELIM\" > \"$TMP_FILE\"\ndef square_nums(nums):\n    return list(map(lambda x: x ** 2, nums))\n$DELIM\ntermy_set_context 'active_file' \"$TMP_FILE\" && termy_set_context 'active_content' \"$(cat \"$TMP_FILE\")\""
+      }
+    }
+  ],
+  "source": "vezora_alpaca_143k",
+  "license": "Apache-2.0",
+  "permission": "yolo"
+}
+```
+
+---
+
+### License
+
+This has a **dual-layer licensing model** to respect both open-source software principles and original data creators:
+
+1. **Repository Tooling & Structure:** The normalization scripts, repository structure, and derived formatting are licensed under the **GNU Affero General Public License v3.0 (AGPLv3)**.
+2. **Raw Data:** The datasets contained in the `raw/` directory retain their original licenses (Apache 2.0, ODC-BY, CC0). 
+
+*See [`LICENSES.md`](LICENSES.md) for a detailed breakdown of attribution requirements and compatibility.*
+
+---
+
+### Contributing & Credits
+
+Huge thanks to the original creators of these datasets (Vezora, BigCode, notbadai, Bhavesh Mittal, thedevastator) for pushing the boundaries of open-source AI. 
+
+Found a bug in the normalization script? Have a new dataset to add? **Pull requests are welcome!** Please ensure any new datasets added have a permissive license compatible with this repository's goals.
+
+---
+*Built with for the NPC-Forge community by Giovanni Blu Mitolo.*
