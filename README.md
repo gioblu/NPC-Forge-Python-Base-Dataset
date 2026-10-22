@@ -1,6 +1,6 @@
 ## NPC-Forge-Python-Dataset
 
-This repository consolidates ~200,000+ of the best open-source Python programming examples into an organized library of curated solutions purpose-built for the **NPC-Forge** framework. The total number of entries is 43999 with a footprint of around 71,3MB.
+This repository consolidates ~43,999 of the best open-source Python programming examples into an organized library of curated solutions purpose-built for the **NPC-Forge** framework. The total number of entries is ~43,999 with a footprint of around 71,3MB.
 
 [![Size: ~200k+ Samples](https://img.shields.io/badge/Samples-200k+-orange.svg)](#)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
