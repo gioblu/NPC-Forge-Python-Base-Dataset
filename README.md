@@ -67,7 +67,7 @@ Here is what a processed, agent-ready record looks like. Notice the secure `head
 
 ### License
 
-**Dual-layer licensing model** to respect both open-source software principles and original data creators:
+Dual-layer licensing model is applied to respect both open-source software principles and original data creators:
 
 1. **Repository Tooling & Structure:** The normalization scripts, repository structure, and derived formatting are licensed under the **GNU Affero General Public License v3.0 (AGPLv3)**.
 2. **Raw Data:** The datasets contained in the `raw/` directory retain their licenses (Apache 2.0, ODC-BY, CC0). 
