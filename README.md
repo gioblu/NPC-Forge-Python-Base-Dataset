@@ -21,7 +21,7 @@ The paraphrases generation was done using [granite-4.1 3B](https://www.ibm.com/g
 
 ### Included Datasets
 
-This repository aggregates the following high-quality sources.
+This repository aggregates a curated subset of the following high-quality sources:
 
 | Dataset Name | Entries | Source | Original License |
 | :--- | :--- | :--- | :--- | 
