@@ -2,7 +2,7 @@
 
 This repository consolidates ~43,999 of the best open-source Python programming examples into an organized library of curated solutions purpose-built for the **NPC-Forge** framework. The total number of entries is ~43,999 with a footprint of around 71,3MB.
 
-This dataset, even if originally developed to train LLMs, is now used to provide Python programming abilities to deterministic NPCs. The sheer amount of intents (>43k) and their paraphrases (~4 per intent) makes NPCs surprisingly capable of answering Python related questions.
+This dataset, even if originally developed to train LLMs, is now used by [NPC-Forge](https://github.com/gioblu/NPC-Forge) to provide Python programming abilities to deterministic NPCs. The sheer amount of intents (>43k) and their paraphrases (~4 per intent) makes NPCs surprisingly capable of answering Python related questions.
 
 ### Included Datasets
 
@@ -18,7 +18,7 @@ This repository aggregates a curated subset of the following high-quality source
 
 A lot of work has been done on the original dataset using scripts and local language models:
 
-1. The dataset has been converted to [NDF 0.0 (NPC-Forge Dataset Format)](docs/dataset.md).
+1. The dataset has been converted to [NDF 0.0 (NPC-Forge Dataset Format)](https://github.com/gioblu/NPC-Forge/blob/main/docs/dataset.md).
 2. Removed inputs longer than 100 characters.
 3. Removed duplicated inputs.
 4. Removed inputs that require code editing (debug this, optimize this, rewrite this).
