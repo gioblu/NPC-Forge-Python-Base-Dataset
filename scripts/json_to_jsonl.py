@@ -4,7 +4,7 @@ import json
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 JSON_DIR = os.path.abspath(os.path.join(BASE_DIR, '../json'))
 JSONL_DIR = os.path.abspath(os.path.join(BASE_DIR, '../jsonl'))
-OUTPUT_FILE = os.path.join(JSONL_DIR, 'NPC-Forge-Python-Base-Dataset-unified.jsonl')
+OUTPUT_FILE = os.path.join(JSONL_DIR, 'dataset_NPC-Forge-Python-Base-Dataset-unified.jsonl')
 
 def unify_json_to_jsonl():
     if not os.path.exists(JSONL_DIR):
