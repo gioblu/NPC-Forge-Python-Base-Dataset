@@ -19,9 +19,9 @@ This repository aggregates a curated subset of the following high-quality source
 A lot of work has been done on the original dataset using scripts and local language models:
 
 1. The dataset has been converted to [NDF 0.0 (NPC-Forge Dataset Format)](docs/dataset.md).
-2. Removed all inputs longer than 100 characters.
-3. Removed all duplicated inputs.
-4. Removed questions that require code editing (debug this, optimize this, rewrite this).
+2. Removed inputs longer than 100 characters.
+3. Removed duplicated inputs.
+4. Removed inputs that require code editing (debug this, optimize this, rewrite this).
 5. Removed entries containing non functional code.
 6. Removed non-ASCII characters.
 7. Lowercased inputs.
