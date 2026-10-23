@@ -2,9 +2,6 @@
 
 This repository consolidates ~43,999 of the best open-source Python programming examples into an organized library of curated solutions purpose-built for the **NPC-Forge** framework. The total number of entries is ~43,999 with a footprint of around 71,3MB.
 
-[![Size: ~200k+ Samples](https://img.shields.io/badge/Samples-200k+-orange.svg)](#)
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-
 The idea is to use this dataset, originally developed to train LLMs, to provide Python programming abilities to deterministic NPCs. The sheer amount of intents (>43k) and their paraphrases (~4 per intent) makes NPCs surprisingly capable of answering Python related questions.
 
 A lot of work has been done on the original dataset using scripts and local language models:
@@ -73,11 +70,11 @@ This has a **dual-layer licensing model** to respect both open-source software p
 
 ---
 
-### Contributing & Credits
+### Contribute
 
 Huge thanks to the original creators of these datasets (Vezora, BigCode, notbadai, Bhavesh Mittal, thedevastator) for pushing the boundaries of open-source AI. 
 
-Found a bug in the normalization script? Have a new dataset to add? **Pull requests are welcome!** Please ensure any new datasets added have a permissive license compatible with this repository's goals.
+Have a new dataset to add? **Pull requests are welcome!** Please ensure any new datasets added have a permissive license compatible with this repository's goals.
 
 ---
 *Built with for the NPC-Forge community by Giovanni Blu Mitolo.*
