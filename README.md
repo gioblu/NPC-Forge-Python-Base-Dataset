@@ -38,23 +38,29 @@ This repository aggregates the following high-quality sources.
 Here is what a processed, agent-ready record looks like. Notice the secure `head` and `tail` injected into the command, and the mandatory provenance tags:
 
 ```json
-{
-  "input": "write a function to find squares of individual elements in a list using lambda function.",
-  "tools": [
     {
-      "name": "run_in_terminal",
-      "arguments": {
-        "language": "python",
-        "mode": "sync",
-        "goal": "Python source code generation",
-        "command": "TMP_FILE=$(mktemp /tmp/termy_script_XXXXXX.py) && DELIM=\"__TERMY_BOUNDARY_$$_$RANDOM__\" && cat << \"$DELIM\" > \"$TMP_FILE\"\ndef square_nums(nums):\n    return list(map(lambda x: x ** 2, nums))\n$DELIM\ntermy_set_context 'active_file' \"$TMP_FILE\" && termy_set_context 'active_content' \"$(cat \"$TMP_FILE\")\""
-      }
-    }
-  ],
-  "source": "vezora_alpaca_143k",
-  "license": "Apache-2.0",
-  "permission": "yolo"
-}
+        "input": [
+            "write a program to find all possible permutations of a given list",
+            "utilize python to generate all possible arrangements of a provided list",
+            "create a python script that generates every arrangement of elements from an input list",
+            "create a python script that generates every arrangement of elements from a provided list",
+            "write a python script to generate all arrangements of a list"
+        ],
+        "output": "<||completion||> To implement the function `permutations(lst)`, we need to generate...",
+        "permission": "yolo",
+        "tools": [
+            {
+                "name": "run_in_terminal",
+                "arguments": {
+                    "command": "def permutations(lst):\n...",
+                    "explanation": "Writes Python script in a temp file and updates context.",
+                    "goal": "Python source code generation",
+                    "mode": "sync",
+                    "language": "py"
+                }
+            }
+        ]
+    },
 ```
 
 ---
