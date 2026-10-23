@@ -38,29 +38,29 @@ This repository aggregates the following high-quality sources.
 Here is what a processed, agent-ready record looks like. Notice the secure `head` and `tail` injected into the command, and the mandatory provenance tags:
 
 ```json
-    {
-        "input": [
-            "write a program to find all possible permutations of a given list",
-            "utilize python to generate all possible arrangements of a provided list",
-            "create a python script that generates every arrangement of elements from an input list",
-            "create a python script that generates every arrangement of elements from a provided list",
-            "write a python script to generate all arrangements of a list"
-        ],
-        "output": "<||completion||> To implement the function `permutations(lst)`, we need to generate...",
-        "permission": "yolo",
-        "tools": [
-            {
-                "name": "run_in_terminal",
-                "arguments": {
-                    "command": "def permutations(lst):\n...",
-                    "explanation": "Writes Python script in a temp file and updates context.",
-                    "goal": "Python source code generation",
-                    "mode": "sync",
-                    "language": "py"
-                }
+{
+    "input": [
+        "explain how to convert a numpy array into a list format using python",
+        "create a python snippet to convert numpy array to list",
+        "convert numpy array to list in python"
+    ],
+    "output": "<||completion||>\n\nCertainly! To convert a...",
+    "permission": "yolo",
+    "tools": [
+        {
+            "name": "run_in_terminal",
+            "arguments": {
+                "command": "import numpy as np \n...",
+                "explanation": "Writes Python script in a temp file and updates context.",
+                "goal": "Python source code generation",
+                "mode": "sync",
+                "language": "py"
             }
-        ]
-    },
+        }
+    ],
+    "source": "Vezora's CodeTester Dataset by Vezora",
+    "license": "Apache license 2.0"
+}
 ```
 
 ---
